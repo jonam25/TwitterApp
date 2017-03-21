@@ -1,0 +1,11 @@
+﻿@model Models.Tweet
+
+@{
+    ViewBag.Title = "Get Tweets";
+}
+
+<div ng-controller="TwitterViewModel">
+    Enter Hash Tag to get tweets: <input id="Text1" ng-model="t.TweetHashTag" type="text" /><br />
+    <input id="Button1" type="button" value="Submit" />
+    <input id="Button2" type="button" value="Reset" />
+</div>

@@ -1,0 +1,57 @@
+﻿@model GetTweets.ViewModel.TweetViewModel
+@using Models;
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html ng-app="AngularApp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Twitter App</title>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/AppModule.js"></script>
+    <script src="~/Scripts/Service.js"></script>
+    <script src="~/Scripts/Controller.js"></script>
+</head>
+<body>
+    <div ng-controller="TweetCtrl">
+        <div>
+            Enter Hash Tag to get tweets: <input id="Text1" ng-model="tweet.TweetHashTag" type="text" /><br />
+            <input id="Submit1" type="button" value="Submit" />
+            <table border="1" cellpadding="10" align="center">
+                <tr>
+                    <td>
+                        Author
+                    </td>
+                    <td>
+                        Author Pic
+                    </td>
+                    <td>
+                        Message
+                    </td>
+                    <td>
+                        Posted At
+                    </td>
+                </tr>
+                <tr ng-repeat="tvm in tweets">
+                    <td>
+                        {{tvm.Author}}
+                    </td>
+                    <td>
+                        {{tvm.AuthorPic}}
+                    </td>
+                    <td>
+                        {{tvm.Message}}
+                    </td>
+                    <td>
+                        {{tvm.TimePosted}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

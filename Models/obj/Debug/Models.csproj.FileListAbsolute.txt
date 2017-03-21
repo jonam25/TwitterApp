@@ -1,0 +1,4 @@
+C:\Project Test\GetTweets\GetTweets\Models\bin\Debug\Models.dll
+C:\Project Test\GetTweets\GetTweets\Models\bin\Debug\Models.pdb
+C:\Project Test\GetTweets\GetTweets\Models\obj\Debug\Models.dll
+C:\Project Test\GetTweets\GetTweets\Models\obj\Debug\Models.pdb

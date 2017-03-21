@@ -1,0 +1,69 @@
+﻿@model GetTweets.ViewModel.TweetViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Twitter App</title>
+    <style>
+        .Grid td {
+            padding: 3px;
+        }
+
+        .Grid {
+            border-collapse: collapse;
+        }
+
+        .GridHeader th {
+            background-color: lightblue;
+            border: 1px solid black;
+        }
+
+        .Grid td {
+            background-color: lightgray;
+            border: 1px solid black;
+        }
+
+        .AltRow td {
+            background-color: lightpink;
+        }
+
+        .GridFooter td {
+            background-color: lightblue;
+        }
+    </style>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>   
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script> 
+</head>
+<body>
+    <b>Enter Hash Tag to get tweets:</b> <input id="Text1" type="text" />
+    <input id="Submit1" type="button" value="Submit" /><br/><br />
+    @{
+        var grid = new WebGrid(Model.tweets, canPage: true,
+            canSort: true, rowsPerPage: 2, ajaxUpdateContainerId: "DivGrid");
+        grid.Pager(WebGridPagerModes.NextPrevious);
+    }
+    <div id="DivGrid">
+        @grid.GetHtml(tableStyle: "Grid", headerStyle: "GridHeader",
+    alternatingRowStyle: "AltRow", footerStyle: "GridFooter",
+    columns: grid.Columns
+    (
+    grid.Column("Author", "Author", format: @<text>@item.Author</text>),
+    grid.Column("Picture", "Picture",format: @<img src="@Url.Content(item.AuthorPic)" alt="Image" />),
+    grid.Column("Message", "Message"),
+    grid.Column("TimePosted", "TimePosted"),
+     grid.Column("RetweetCount", "RetweetCount"),
+    grid.Column("LikesCount", "LikesCount")
+        )
+        )
+    </div>
+    <div>
+    </div>
+</body>
+</html>

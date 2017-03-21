@@ -1,0 +1,26 @@
+﻿@model GetTweets.ViewModel.TweetViewModel
+@using Models;
+@{
+    Layout = null;
+}
+  
+        <table id="tbl">
+            <tr>
+                <td>Author</td>
+                <td>Author Pic</td>
+                <td>Tweet</td>
+                <td>Posted At</td>
+                <td>Likes</td>
+                <td>Retweets</td>
+            </tr>
+            <tr ng-repeat="twt in tweets">
+                <td>{{twt.Author}}</td>
+                <td>{{twt.AuthorPic}}</td>
+                <td>{{twt.Message}}</td>
+                <td>{{twt.TimePosted}}</td>
+                <td>{{twt.LikesCount}}</td>
+                <td>{{twt.RetweetCount}}</td>
+            </tr>
+        </table>
+   
+

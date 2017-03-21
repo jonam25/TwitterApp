@@ -1,0 +1,23 @@
+﻿@model GetTweets.ViewModel.TweetViewModel
+@using Models;
+
+@{
+    var grid = new WebGrid(Model.tweets, canPage: true,
+        canSort: true, rowsPerPage: 2, ajaxUpdateContainerId: "DivGrid");
+    grid.Pager(WebGridPagerModes.NextPrevious);
+}
+<div id="DivGrid">
+    @grid.GetHtml(tableStyle: "Grid", headerStyle: "GridHeader",
+    alternatingRowStyle: "AltRow", footerStyle: "GridFooter",
+    columns: grid.Columns
+    (
+    grid.Column("Author", "Author", format: @<text>@item.Author</text>),
+    grid.Column("Picture", "Picture", format: @<img src="@Url.Content(item.AuthorPic)" alt="Image" />),
+    grid.Column("Message", "Message"),
+    grid.Column("TimePosted", "TimePosted"),
+     grid.Column("RetweetCount", "RetweetCount"),
+    grid.Column("LikesCount", "LikesCount")
+        )
+        )
+</div>
+

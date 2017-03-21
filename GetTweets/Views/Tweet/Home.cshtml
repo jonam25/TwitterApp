@@ -1,0 +1,32 @@
+﻿@model GetTweets.ViewModel.TweetViewModel
+@using Models;
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Twitter App</title>    
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body>
+    <div>
+            @using (Html.BeginForm("Tweet1", "Tweet", FormMethod.Post))
+            {
+                @Html.TextBoxFor(model => model.tweet.TweetHashTag)
+                @Html.ValidationMessageFor(model => model.tweet.TweetHashTag)
+                <button type="submit">Submit</button>
+            }
+       
+            
+       
+    </div>
+</body>
+</html>
